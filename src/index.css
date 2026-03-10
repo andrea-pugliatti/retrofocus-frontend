@@ -37,6 +37,10 @@
   font-style: normal;
 }
 
+.bold {
+  font-weight: 500;
+}
+
 body {
   background-color: var(--rf-bg-primary);
 }
@@ -187,6 +191,23 @@ header {
       margin-block: 0.5rem;
     }
   }
+}
+
+/* Featured Section */
+.featured {
+  margin-block: 2rem;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Product Card */
+.product-card {
+  border: 1px solid var(--rf-color-primary);
+  padding: 1rem;
 }
 
 /* Footer */
