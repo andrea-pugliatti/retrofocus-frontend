@@ -1,19 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
 
+const navLinks = [
+  { id: 1, title: "Cameras", href: "/" },
+  { id: 2, title: "Lenses", href: "/" },
+  { id: 3, title: "Adapters", href: "/" },
+  { id: 4, title: "About", href: "/" },
+];
+
 export default function Header() {
   return (
     <header>
-      <div className="nav">
+      <nav className="nav">
         <Link to={"/"}>
-          <h2>RetroFocus</h2>
+          <h2 className="site-title playfair-font">RetroFocus</h2>
         </Link>
         <div className="links">
-          <NavLink to={"/"}>Cameras</NavLink>
-          <NavLink to={"/"}>Lenses</NavLink>
-          <NavLink to={"/"}>Adapters</NavLink>
-          <NavLink to={"/"}>About</NavLink>
+          {navLinks.map((link) => (
+            <NavLink key={link.id} to={link.href}>
+              {link.title}
+            </NavLink>
+          ))}
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
