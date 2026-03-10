@@ -1,0 +1,70 @@
+/* Constants */
+:root {
+  --rf-bg-primary: #fdfcf9;
+  --rf-bg-secondary: #f7f5f1;
+  --rf-color-primary: #180f0a;
+  --rf-color-hover: #70635c;
+  --rf-color-accent: #aa5830;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+}
+
+/* Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: var(--rf-bg-primary);
+}
+
+/* Header */
+header {
+  background-color: var(--rf-bg-secondary);
+  padding: 1rem;
+}
+
+.nav {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  & > * {
+    gap: 2rem;
+    align-self: center;
+  }
+
+  .links {
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--rf-color-primary);
+    font-size: 1.1rem;
+  }
+
+  .links > a {
+    &:hover {
+      color: var(--rf-color-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+footer {
+  background-color: var(--rf-bg-secondary);
+  padding: 1rem;
+  & > * {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+}
