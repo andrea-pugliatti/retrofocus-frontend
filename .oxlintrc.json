@@ -2,16 +2,17 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [],
   "categories": {
-    "correctness": "off"
+    "correctness": "off",
   },
   "env": {
-    "builtin": true
+    "builtin": true,
   },
   "ignorePatterns": ["dist"],
   "overrides": [
     {
       "files": ["**/*.{js,jsx}"],
       "rules": {
+        "@react/only-export-components": "off",
         "constructor-super": "error",
         "for-direction": "error",
         "no-async-promise-executor": "error",
@@ -63,8 +64,8 @@
         "no-unused-vars": [
           "error",
           {
-            "varsIgnorePattern": "^[A-Z_]"
-          }
+            "varsIgnorePattern": "^[A-Z_]",
+          },
         ],
         "no-useless-backreference": "error",
         "no-useless-catch": "error",
@@ -78,14 +79,14 @@
         "react/only-export-components": [
           "error",
           {
-            "allowConstantExport": true
-          }
-        ]
+            "allowConstantExport": true,
+          },
+        ],
       },
       "plugins": ["react"],
       "env": {
         "es2020": true,
-        "browser": true
+        "browser": true,
       },
       "globals": {
         "AudioWorkletGlobalScope": "readonly",
@@ -94,8 +95,8 @@
         "currentTime": "readonly",
         "registerProcessor": "readonly",
         "sampleRate": "readonly",
-        "WorkletGlobalScope": "readonly"
-      }
-    }
-  ]
+        "WorkletGlobalScope": "readonly",
+      },
+    },
+  ],
 }

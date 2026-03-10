@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import ProductCard from "../components/ProductCard";
+import { useLoader } from "../contexts/LoaderContext";
 
 export default function Homepage() {
   const [cameras, setCameras] = useState([]);
   const [lenses, setLenses] = useState([]);
+  const { setLoader } = useLoader();
+
   const endpoint = "http://localhost:8080/api/";
 
   useEffect(() => {
+    setLoader(true);
     fetch(endpoint + "cameras")
       .then((res) => res.json())
       .then((res) => {
@@ -15,7 +19,8 @@ export default function Homepage() {
       })
       .catch((err) => {
         throw err;
-      });
+      })
+      .finally(() => setLoader(false));
 
     fetch(endpoint + "lenses")
       .then((res) => res.json())

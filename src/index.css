@@ -118,6 +118,19 @@ header {
   }
 }
 
+/* Loader */
+.loader {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(42, 55, 67, 0.6);
+}
+
 /* Jumbotron */
 .jumbotron {
   position: relative;
@@ -254,6 +267,7 @@ footer {
     }
   }
 }
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
