@@ -21,10 +21,12 @@ export default function Cameras() {
   }, [setLoader]);
 
   return (
-    <main>
-      {cameras.map((camera) => (
-        <ProductCard key={camera.id} product={camera} />
-      ))}
+    <main className="container">
+      <div className="product-grid">
+        {cameras.map((camera) => (
+          <ProductCard key={camera.id} product={camera} />
+        ))}
+      </div>
     </main>
   );
 }

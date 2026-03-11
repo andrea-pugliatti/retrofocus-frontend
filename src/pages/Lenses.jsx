@@ -21,10 +21,12 @@ export default function Lenses() {
   }, [setLoader]);
 
   return (
-    <main>
-      {lenses.map((lens) => (
-        <ProductCard key={lens.id} product={lens} />
-      ))}
+    <main className="container">
+      <div className="product-grid">
+        {lenses.map((lens) => (
+          <ProductCard key={lens.id} product={lens} />
+        ))}
+      </div>
     </main>
   );
 }
