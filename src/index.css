@@ -45,6 +45,10 @@ body {
   background-color: var(--rf-bg-primary);
 }
 
+a {
+  text-decoration: none;
+}
+
 /* Header */
 header {
   background-color: rgba(247, 245, 241, 0.7);
@@ -211,10 +215,15 @@ header {
   margin-block: 2rem;
 }
 
+.featured-title {
+  font-size: 3rem;
+}
+
 .featured-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  margin-block: 2rem;
+  gap: 2rem;
 }
 
 /* Product Card */
@@ -224,9 +233,10 @@ header {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
   padding: 0;
   overflow: hidden;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   text-align: left;
   background-color: var(--rf-bg-secondary);
   font-weight: 300;
@@ -235,9 +245,12 @@ header {
   color: var(--rf-color-primary);
 
   .product-image {
+    overflow: hidden;
+    height: 300px;
     & > img {
       transition-duration: 300ms;
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -267,7 +280,7 @@ header {
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
   &:hover .product-image img {
-    scale: 105%;
+    scale: 110%;
   }
 }
 

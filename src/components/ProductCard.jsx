@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function ProductCard({ product }) {
   const imageEndpoint = "http://localhost:8080/images/";
 
@@ -8,7 +6,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <Link className="product-card">
+    <div className="product-card">
       <div className="product-image">
         <img
           src={`${imageEndpoint}${product.image}`}
@@ -26,6 +24,6 @@ export default function ProductCard({ product }) {
         </p>
         <p className="product-body-description">{product.description}</p>
       </div>
-    </Link>
+    </div>
   );
 }

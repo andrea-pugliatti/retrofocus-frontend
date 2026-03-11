@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="footer-grid">
         <div>
-          <h1>RetroFocus</h1>
+          <h1 className="playfair-font">RetroFocus</h1>
           <p>
             A curated repository of iconic cameras and lenses from the golden age of photography.
           </p>

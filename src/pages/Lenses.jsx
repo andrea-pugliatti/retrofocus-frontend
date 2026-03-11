@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { useLoader } from "../contexts/LoaderContext";
+import { Link } from "react-router-dom";
 
 export default function Lenses() {
   const [lenses, setLenses] = useState([]);
@@ -24,7 +25,9 @@ export default function Lenses() {
     <main className="container">
       <div className="product-grid">
         {lenses.map((lens) => (
-          <ProductCard key={lens.id} product={lens} />
+          <Link key={lens.id} to={`/lenses/${lens.id}`}>
+            <ProductCard product={lens} />
+          </Link>
         ))}
       </div>
     </main>

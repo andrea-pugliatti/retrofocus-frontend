@@ -6,6 +6,8 @@ import Lenses from "./pages/Lenses";
 import Adapters from "./pages/Adapters";
 import AboutUs from "./pages/AboutUs";
 import { LoaderProvider } from "./contexts/LoaderContext";
+import CameraDetail from "./pages/CameraDetail";
+import LensDetail from "./pages/LensDetail";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
           <Route Component={DefaultLayout}>
             <Route path="/" Component={Homepage} />
             <Route path="/cameras" Component={Cameras} />
+            <Route path="/cameras/:id" Component={CameraDetail} />
             <Route path="/lenses" Component={Lenses} />
+            <Route path="/lenses/:id" Component={LensDetail} />
             <Route path="/adapters" Component={Adapters} />
             <Route path="/about" Component={AboutUs} />
           </Route>

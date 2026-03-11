@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import ProductCard from "../components/ProductCard";
 import { useLoader } from "../contexts/LoaderContext";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const [cameras, setCameras] = useState([]);
@@ -38,20 +39,24 @@ export default function Homepage() {
       <section className="container">
         <div className="featured">
           <p className="uppercase color-accent bold">Featured</p>
-          <h1 className="playfair-font">Cameras</h1>
+          <h1 className="featured-title playfair-font">Cameras</h1>
           <div className="featured-grid">
             {cameras.slice(0, 5).map((camera) => (
-              <ProductCard key={camera.id} product={camera} />
+              <Link key={camera.id} to={`/cameras/${camera.id}`}>
+                <ProductCard product={camera} />
+              </Link>
             ))}
           </div>
         </div>
 
         <div className="featured">
           <p className="uppercase color-accent bold">Featured</p>
-          <h1 className="playfair-font">Lenses</h1>
+          <h1 className="featured-title playfair-font">Lenses</h1>
           <div className="featured-grid">
             {lenses.slice(0, 5).map((lens) => (
-              <ProductCard key={lens.id} product={lens} />
+              <Link key={lens.id} to={`/lenses/${lens.id}`}>
+                <ProductCard product={lens} />
+              </Link>
             ))}
           </div>
         </div>

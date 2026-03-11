@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { useLoader } from "../contexts/LoaderContext";
+import { Link } from "react-router-dom";
 
 export default function Cameras() {
   const [cameras, setCameras] = useState([]);
@@ -24,7 +25,9 @@ export default function Cameras() {
     <main className="container">
       <div className="product-grid">
         {cameras.map((camera) => (
-          <ProductCard key={camera.id} product={camera} />
+          <Link key={camera.id} to={`/cameras/${camera.id}`}>
+            <ProductCard product={camera} />
+          </Link>
         ))}
       </div>
     </main>
