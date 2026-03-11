@@ -18,7 +18,7 @@ export default function Cameras() {
         throw err;
       })
       .finally(() => setLoader(false));
-  }, []);
+  }, [setLoader]);
 
   return (
     <main>

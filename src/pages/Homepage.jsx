@@ -30,7 +30,7 @@ export default function Homepage() {
       .catch((err) => {
         throw err;
       });
-  }, []);
+  }, [setLoader]);
 
   return (
     <>

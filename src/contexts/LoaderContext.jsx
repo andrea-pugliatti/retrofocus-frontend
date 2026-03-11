@@ -9,7 +9,7 @@ function LoaderProvider({ children }) {
     <LoaderContext.Provider
       value={{
         loader,
-        setLoader,
+        setLoader
       }}
     >
       {children}

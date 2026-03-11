@@ -5,7 +5,7 @@ export default function Loader() {
     sm: 56,
     md: 96,
     lg: 144,
-    xl: 192,
+    xl: 192
   };
 
   const dimension = sizeMap[size];
@@ -222,7 +222,7 @@ export default function Loader() {
           overflow: "hidden",
           clip: "rect(0, 0, 0, 0)",
           whiteSpace: "nowrap",
-          border: "0",
+          border: "0"
         }}
       >
         {label}

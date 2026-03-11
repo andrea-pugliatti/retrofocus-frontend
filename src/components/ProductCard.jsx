@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export default function ProductCard({ product }) {
   function getYear(date) {
     return date.split("-").at(0);
