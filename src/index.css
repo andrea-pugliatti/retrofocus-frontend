@@ -259,6 +259,8 @@ header {
 
   .product-body {
     padding: 1.5rem;
+    position: relative;
+
     .product-body-title {
       font-size: 1.4rem;
       color: var(--rf-color-hover);
@@ -266,21 +268,31 @@ header {
 
     .product-body-subtitle {
       font-size: 0.9rem;
-
       padding-block: 1rem;
+
       & > * + * {
         margin-left: 1.2rem;
       }
     }
+
     .product-body-description {
       font-size: 1rem;
     }
+
+    .product-body-overlay {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      opacity: 10%;
+    }
   }
+
   &:hover {
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
+
   &:hover .product-image img {
     scale: 110%;
   }

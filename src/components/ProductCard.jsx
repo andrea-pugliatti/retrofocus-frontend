@@ -19,6 +19,7 @@ export default function ProductCard({ product }) {
           <span>{product.type}</span>
         </p>
         <p className="product-body-description">{product.description}</p>
+        <img className="product-body-overlay" src="/logo.svg" alt="" />
       </div>
     </div>
   );
