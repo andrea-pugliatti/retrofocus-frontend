@@ -23,6 +23,11 @@
   margin: 0 auto;
 }
 
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -66,11 +71,6 @@ header {
   display: flex;
   justify-content: space-between;
 
-  & > * {
-    gap: 2rem;
-    align-self: center;
-  }
-
   .site-title {
     font-size: 1.5rem;
     color: var(--rf-color-hover);
@@ -80,6 +80,8 @@ header {
     display: flex;
     font-size: 0.9rem;
     font-weight: 500;
+    align-self: center;
+    gap: 2rem;
   }
 
   a {

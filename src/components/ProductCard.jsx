@@ -8,11 +8,7 @@ export default function ProductCard({ product }) {
   return (
     <div className="product-card">
       <div className="product-image">
-        <img
-          src={`${imageEndpoint}${product.image}`}
-          alt={product.name}
-          className="transition-transform duration-500 group-hover:scale-105"
-        />
+        <img src={`${imageEndpoint}${product.image}`} alt={product.name} />
       </div>
 
       <div className="product-body">

@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import Logo from "./Logo";
 
 const navLinks = [
   { id: 1, title: "Cameras", href: "/cameras" },
@@ -11,7 +12,8 @@ export default function Header() {
   return (
     <header>
       <nav className="nav">
-        <Link to={"/"}>
+        <Link to={"/"} className="d-flex">
+          <Logo height={40} width={100} />
           <h2 className="site-title playfair-font">RetroFocus</h2>
         </Link>
         <div className="links">

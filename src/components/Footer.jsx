@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer>
       <div className="footer-grid">
         <div>
-          <h1 className="playfair-font">RetroFocus</h1>
+          <div className="d-flex">
+            <Logo height={50} width={100} />
+            <h1 className="playfair-font">RetroFocus</h1>
+          </div>
           <p>
             A curated repository of iconic cameras and lenses from the golden age of photography.
           </p>
