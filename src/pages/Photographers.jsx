@@ -5,10 +5,15 @@ import ProductCard from "../components/ProductCard";
 
 export default function Photographers() {
   const endpoint = "http://localhost:8080/api/photographers";
-  const { data, isLoading, isError } = useFetch(endpoint);
+  const { data, isLoading } = useFetch(endpoint);
 
   return (
     <main className="container">
+      <div className="page-title">
+        <p className="uppercase color-accent">Repository</p>
+        <h1 className="playfair-font">Photographers</h1>
+      </div>
+
       <div className="product-grid">
         {data &&
           data.map((photographer) => (
@@ -19,13 +24,6 @@ export default function Photographers() {
       </div>
 
       {isLoading && <Loader />}
-
-      {isError && (
-        <>
-          <span>Error</span>
-          <Loader />
-        </>
-      )}
     </main>
   );
 }

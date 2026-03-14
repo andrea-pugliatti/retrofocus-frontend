@@ -6,10 +6,15 @@ import Loader from "../components/Loader";
 export default function Cameras() {
   const endpoint = "http://localhost:8080/api/cameras";
 
-  const { data, isLoading, isError } = useFetch(endpoint);
+  const { data, isLoading } = useFetch(endpoint);
 
   return (
     <main className="container">
+      <div className="page-title">
+        <p className="uppercase color-accent">Collection</p>
+        <h1 className="playfair-font">Cameras</h1>
+      </div>
+
       <div className="product-grid">
         {data &&
           data.map((camera) => (
@@ -20,13 +25,6 @@ export default function Cameras() {
       </div>
 
       {isLoading && <Loader />}
-
-      {isError && (
-        <>
-          <span>Error</span>
-          <Loader />
-        </>
-      )}
     </main>
   );
 }

@@ -6,10 +6,15 @@ import { useFetch } from "../hooks/useFetch";
 export default function Lenses() {
   const endpoint = "http://localhost:8080/api/lenses";
 
-  const { data, isLoading, isError } = useFetch(endpoint);
+  const { data, isLoading } = useFetch(endpoint);
 
   return (
     <main className="container">
+      <div className="page-title">
+        <p className="uppercase color-accent">Collection</p>
+        <h1 className="playfair-font">Lenses</h1>
+      </div>
+
       <div className="product-grid">
         {data &&
           data.map((lens) => (
@@ -20,13 +25,6 @@ export default function Lenses() {
       </div>
 
       {isLoading && <Loader />}
-
-      {isError && (
-        <>
-          <span>Error</span>
-          <Loader />
-        </>
-      )}
     </main>
   );
 }

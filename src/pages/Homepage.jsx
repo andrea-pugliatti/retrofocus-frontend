@@ -19,9 +19,13 @@ export default function Homepage() {
     isError: isErrorLenses
   } = useFetch(endpoint + "lenses");
 
+  const getPieces = () => cameras.length + lenses.length;
+  // const getBrands = () => {}
+  // const getDecades = () => {}
+
   return (
     <>
-      <Jumbotron />
+      {cameras && lenses && <Jumbotron pieces={getPieces()} brands={5} decades={4} />}
       <section className="container">
         <div className="featured">
           <p className="uppercase color-accent bold">Featured</p>

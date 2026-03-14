@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Jumbotron() {
+export default function Jumbotron({ pieces, brands, decades }) {
   return (
     <section className="jumbotron">
       <div className="jumbo-image">
@@ -26,13 +26,13 @@ export default function Jumbotron() {
           </div>
           <div className="jumbo-display">
             <div>
-              <div className="jumbo-display-number">9</div> pieces
+              <div className="jumbo-display-number">{pieces}</div> pieces
             </div>
             <div>
-              <div className="jumbo-display-number">5</div> brands
+              <div className="jumbo-display-number">{brands}</div> brands
             </div>
             <div>
-              <div className="jumbo-display-number">4</div> decades
+              <div className="jumbo-display-number">{decades}</div> decades
             </div>
           </div>
         </div>
