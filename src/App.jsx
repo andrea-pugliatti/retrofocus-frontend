@@ -8,6 +8,7 @@ import { LoaderProvider } from "./contexts/LoaderContext";
 import CameraDetail from "./pages/CameraDetail";
 import LensDetail from "./pages/LensDetail";
 import Photographers from "./pages/Photographers";
+import PhotographerDetail from "./pages/PhotographerDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/lenses" Component={Lenses} />
             <Route path="/lenses/:id" Component={LensDetail} />
             <Route path="/photographers" Component={Photographers} />
+            <Route path="/photographers/:id" Component={PhotographerDetail} />
             <Route path="/about" Component={AboutUs} />
           </Route>
         </Routes>

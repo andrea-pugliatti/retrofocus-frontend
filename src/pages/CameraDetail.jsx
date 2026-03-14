@@ -1,40 +1,26 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useLoader } from "../contexts/LoaderContext";
+import { useFetch } from "../hooks/useFetch";
+import Loader from "../components/Loader";
 
 export default function CameraDetail() {
-  const [camera, setCamera] = useState();
-  const { setLoader } = useLoader();
   const { id } = useParams();
 
   const endpoint = `http://localhost:8080/api/cameras/${id}`;
-
   const imageEndpoint = "http://localhost:8080/images/";
+
+  const { data: camera, isLoading } = useFetch(endpoint);
 
   function getYear(date) {
     return date.split("-").at(0);
   }
 
-  useEffect(() => {
-    setLoader(true);
-    fetch(endpoint)
-      .then((res) => res.json())
-      .then((res) => {
-        setCamera(res);
-      })
-      .catch((err) => {
-        throw err;
-      })
-      .finally(() => setLoader(false));
-  }, [endpoint, setLoader]);
-
   return (
-    <>
+    <main className="container">
       {camera && (
         <div className="product-card">
           <div className="product-image">
             <img
-              src={`${imageEndpoint}${camera.image}`}
+              src={camera.image ? `${imageEndpoint}${camera.image}` : null}
               alt={camera.name}
               className="transition-transform duration-500 group-hover:scale-105"
             />
@@ -51,6 +37,7 @@ export default function CameraDetail() {
           </div>
         </div>
       )}
-    </>
+      {isLoading && <Loader />}
+    </main>
   );
 }
