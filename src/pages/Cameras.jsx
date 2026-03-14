@@ -1,35 +1,32 @@
-import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
-import { useLoader } from "../contexts/LoaderContext";
 import { Link } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
+import Loader from "../components/Loader";
 
 export default function Cameras() {
-  const [cameras, setCameras] = useState([]);
-  const { setLoader } = useLoader();
   const endpoint = "http://localhost:8080/api/cameras";
 
-  useEffect(() => {
-    setLoader(true);
-    fetch(endpoint)
-      .then((res) => res.json())
-      .then((res) => {
-        setCameras(res);
-      })
-      .catch((err) => {
-        throw err;
-      })
-      .finally(() => setLoader(false));
-  }, [setLoader]);
+  const { data, isLoading, isError } = useFetch(endpoint);
 
   return (
     <main className="container">
       <div className="product-grid">
-        {cameras.map((camera) => (
-          <Link key={camera.id} to={`/cameras/${camera.id}`}>
-            <ProductCard product={camera} />
-          </Link>
-        ))}
+        {data &&
+          data.map((camera) => (
+            <Link key={camera.id} to={`/cameras/${camera.id}`}>
+              <ProductCard product={camera} />
+            </Link>
+          ))}
       </div>
+
+      {isLoading && <Loader />}
+
+      {isError && (
+        <>
+          <span>Error</span>
+          <Loader />
+        </>
+      )}
     </main>
   );
 }

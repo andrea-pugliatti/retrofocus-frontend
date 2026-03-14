@@ -2,8 +2,8 @@
 
 /* Constants */
 :root {
-  --rf-bg-primary: #ffffff;
-  --rf-bg-secondary: #fffbf5;
+  --rf-bg-primary: #fffcf5;
+  --rf-bg-secondary: #f6ecde;
   --rf-color-primary: #70635c;
   --rf-color-hover: #180f0a;
   --rf-color-accent: #aa5830;
@@ -14,7 +14,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", Helvetica, Arial, sans-serif;
 }
 
 /* Utilities */
@@ -46,8 +45,10 @@
   font-weight: 500;
 }
 
+/* Globals */
 body {
   background-color: var(--rf-bg-primary);
+  font-family: "Inter", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -56,7 +57,7 @@ a {
 
 /* Header */
 header {
-  background-color: rgba(247, 245, 241, 0.7);
+  background-color: rgba(246, 236, 222, 0.7);
   border-bottom: 1px solid rgba(52, 44, 39, 0.1);
   padding: 1rem;
   position: sticky;
@@ -230,7 +231,8 @@ header {
 
 /* Product Card */
 .product-card {
-  border: 1px solid var(--rf-color-accent);
+  border: 1px solid rgba(52, 44, 39, 0.1);
+  /* border-radius: 10px; */
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -238,7 +240,6 @@ header {
   height: 100%;
   padding: 0;
   overflow: hidden;
-  /* border-radius: 10px; */
   text-align: left;
   background-color: var(--rf-bg-secondary);
   font-weight: 300;

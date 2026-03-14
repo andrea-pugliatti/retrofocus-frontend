@@ -19,7 +19,7 @@ export default function Footer() {
           <h3>Collections</h3>
           <Link>Cameras</Link>
           <Link>Lenses</Link>
-          <Link>Adapters</Link>
+          <Link>Photographers</Link>
         </div>
         <div className="footer-links">
           <h3>Explore</h3>
