@@ -7,17 +7,9 @@ import ProductCard from "../components/ProductCard";
 export default function Homepage() {
   const endpoint = "http://localhost:8080/api/";
 
-  const {
-    data: cameras,
-    isLoading: isLoadingCameras,
-    isError: isErrorCameras
-  } = useFetch(endpoint + "cameras");
+  const { data: cameras, isLoading: isLoadingCameras } = useFetch(endpoint + "cameras");
 
-  const {
-    data: lenses,
-    isLoading: isLoadingLenses,
-    isError: isErrorLenses
-  } = useFetch(endpoint + "lenses");
+  const { data: lenses, isLoading: isLoadingLenses } = useFetch(endpoint + "lenses");
 
   const getPieces = () => cameras.length + lenses.length;
   // const getBrands = () => {}
@@ -25,7 +17,7 @@ export default function Homepage() {
 
   return (
     <>
-      {cameras && lenses && <Jumbotron pieces={getPieces()} brands={5} decades={4} />}
+      {cameras && lenses && <Jumbotron pieces={getPieces()} brands={24} decades={12} />}
       <section className="container">
         <div className="featured">
           <p className="uppercase color-accent bold">Featured</p>
@@ -41,13 +33,6 @@ export default function Homepage() {
           </div>
 
           {isLoadingCameras && <Loader />}
-
-          {isErrorCameras && (
-            <>
-              <span>Error</span>
-              <Loader />
-            </>
-          )}
         </div>
 
         <div className="featured">
@@ -64,13 +49,6 @@ export default function Homepage() {
           </div>
 
           {isLoadingLenses && <Loader />}
-
-          {isErrorLenses && (
-            <>
-              <span>Error</span>
-              <Loader />
-            </>
-          )}
         </div>
       </section>
     </>

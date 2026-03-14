@@ -17,10 +17,10 @@ export default function Jumbotron({ pieces, brands, decades }) {
             photography. Every piece tells a story of precision engineering and timeless design.
           </p>
           <div className="jumbo-buttons">
-            <Link className="btn-primary" to={"/"}>
+            <Link className="btn-primary" to={"/cameras"}>
               Browse Collection
             </Link>
-            <Link className="btn-outline" to={"/"}>
+            <Link className="btn-outline" to={"/about"}>
               Learn more
             </Link>
           </div>

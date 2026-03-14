@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function ProductCard({ product }) {
   const imageEndpoint = "http://localhost:8080/images/";
 
@@ -26,8 +28,9 @@ export default function ProductCard({ product }) {
         <p className="product-body-description">
           {product.description ? product.description : product.biography}
         </p>
+        <img className="product-body-overlay" src="/logo.svg" alt="" />
       </div>
-      <img className="product-body-overlay" src="/images/vintage_cameras.png" alt="" />
+      <img className="product-mark" src="/images/vintage_cameras.png" alt="" />
     </div>
   );
 }
