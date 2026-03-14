@@ -275,6 +275,8 @@ header {
     .product-body-subtitle {
       font-size: 0.9rem;
       padding-block: 1rem;
+      display: flex;
+      align-items: flex-end;
 
       & > * + * {
         margin-left: 1.2rem;
