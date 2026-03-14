@@ -255,6 +255,7 @@ header {
   transition-duration: 300ms;
   text-decoration: none;
   color: var(--rf-color-primary);
+  position: relative;
 
   .product-image {
     overflow: hidden;
@@ -269,7 +270,6 @@ header {
 
   .product-body {
     padding: 1.5rem;
-    position: relative;
     height: 40%;
 
     .product-body-title {
@@ -289,15 +289,14 @@ header {
     .product-body-description {
       font-size: 1rem;
     }
-
-    .product-body-overlay {
-      position: absolute;
-      height: 80%;
-      margin: 1rem;
-      bottom: 0;
-      right: 0;
-      opacity: 25%;
-    }
+  }
+  .product-body-overlay {
+    position: absolute;
+    height: 20%;
+    margin: 1rem;
+    bottom: 20%;
+    right: 0;
+    opacity: 100%;
   }
 
   &:hover {
@@ -308,6 +307,62 @@ header {
 
   &:hover .product-image img {
     scale: 110%;
+  }
+}
+
+/* Page title */
+.page-title {
+  text-align: center;
+  margin-block: 2rem;
+
+  & > h1 {
+    font-size: 3rem;
+  }
+}
+
+/* About page */
+.about-main {
+  max-width: 800px;
+  margin: 3rem auto;
+
+  .about-main-text {
+    text-align: center;
+    margin-block: 2rem;
+  }
+}
+
+.about-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 3rem auto;
+}
+
+.about-main-card {
+  border: 1px dashed var(--rf-color-accent);
+  padding: 1.5rem;
+  background-color: var(--rf-bg-secondary);
+  color: var(--rf-color-hover);
+
+  & > * {
+    margin-block: 0.5rem;
+  }
+}
+
+.timeline {
+  max-width: 800px;
+  margin: 1rem auto;
+  padding-inline: 1rem;
+  padding-block: 0.4rem;
+  border-left: 3px solid var(--rf-color-hover);
+}
+
+.timeline-item {
+  margin-left: 0.3rem;
+
+  span {
+    font-size: 1.2rem;
   }
 }
 
