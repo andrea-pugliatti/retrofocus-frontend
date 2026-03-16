@@ -1,7 +1,7 @@
-import CalendarIcon from "./CalendarIcon";
-import ApertureIcon from "./ApertureIcon";
-import CameraIcon from "./CameraIcon";
-import ArrowIcon from "./ArrowIcon";
+import CalendarIcon from "./icons/CalendarIcon";
+import ApertureIcon from "./icons/ApertureIcon";
+import CameraIcon from "./icons/CameraIcon";
+import ArrowIcon from "./icons/ArrowIcon";
 
 export default function ProductCard({ product }) {
   const imageEndpoint = "http://localhost:8080/images/";

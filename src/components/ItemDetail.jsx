@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ApertureIcon from "./ApertureIcon";
-import ArrowIcon from "./ArrowIcon";
-import CalendarIcon from "./CalendarIcon";
-import CameraIcon from "./CameraIcon";
+import ApertureIcon from "./icons/ApertureIcon";
+import ArrowIcon from "./icons/ArrowIcon";
+import CalendarIcon from "./icons/CalendarIcon";
+import CameraIcon from "./icons/CameraIcon";
 
 export default function ItemDetail({ item }) {
   const imageEndpoint = "http://localhost:8080/images/";
