@@ -1,4 +1,4 @@
-import ProductCard from "../components/ProductCard";
+import ItemCard from "../components/ItemCard";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useFetch } from "../hooks/useFetch";
@@ -15,11 +15,11 @@ export default function Lenses() {
         <h1 className="playfair-font">Lenses</h1>
       </div>
 
-      <div className="product-grid">
+      <div className="item-grid">
         {data &&
           data.map((lens) => (
             <Link key={lens.id} to={`/lenses/${lens.id}`}>
-              <ProductCard product={lens} />
+              <ItemCard item={lens} />
             </Link>
           ))}
       </div>

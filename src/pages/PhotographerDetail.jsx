@@ -2,8 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "../components/Loader";
 import ItemDetail from "../components/ItemDetail";
-import ProductCard from "../components/ProductCard";
-import FeaturedList from "../components/FeaturedList";
+import ItemCard from "../components/ItemCard";
 
 export default function PhotographerDetail() {
   const { id } = useParams();
@@ -27,12 +26,12 @@ export default function PhotographerDetail() {
             <div className="featured-grid">
               {photographer.cameras.map((item) => (
                 <Link key={item.id} to={`/cameras/${item.id}`}>
-                  <ProductCard product={item} />
+                  <ItemCard item={item} />
                 </Link>
               ))}
               {photographer.lenses.map((item) => (
                 <Link key={item.id} to={`/lenses/${item.id}`}>
-                  <ProductCard product={item} />
+                  <ItemCard item={item} />
                 </Link>
               ))}
             </div>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import { useFetch } from "../hooks/useFetch";
-import ProductCard from "../components/ProductCard";
+import ItemCard from "../components/ItemCard";
 
 export default function Photographers() {
   const endpoint = "http://localhost:8080/api/photographers";
@@ -14,11 +14,11 @@ export default function Photographers() {
         <h1 className="playfair-font">Photographers</h1>
       </div>
 
-      <div className="product-grid">
+      <div className="item-grid">
         {data &&
           data.map((photographer) => (
             <Link key={photographer.id} to={`/photographers/${photographer.id}`}>
-              <ProductCard product={photographer} />
+              <ItemCard item={photographer} />
             </Link>
           ))}
       </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import ProductCard from "./ProductCard";
+import ItemCard from "./ItemCard";
 
 export default function FeaturedList({ list, type }) {
   function getCapitalizedType(type) {
@@ -14,7 +14,7 @@ export default function FeaturedList({ list, type }) {
       <div className="featured-grid">
         {list.map((item) => (
           <Link key={item.id} to={`/${type.toLowerCase()}/${item.id}`}>
-            <ProductCard product={item} />
+            <ItemCard item={item} />
           </Link>
         ))}
       </div>
