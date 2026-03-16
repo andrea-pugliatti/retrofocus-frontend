@@ -12,7 +12,7 @@ export default function FeaturedList({ list, type }) {
       <h1 className="featured-title playfair-font">{getCapitalizedType(type)}</h1>
 
       <div className="featured-grid">
-        {list.map((item) => (
+        {list?.map((item) => (
           <Link key={item.id} to={`/${type.toLowerCase()}/${item.id}`}>
             <ItemCard item={item} />
           </Link>

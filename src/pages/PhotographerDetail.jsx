@@ -15,31 +15,29 @@ export default function PhotographerDetail() {
 
   return (
     <main className="container">
-      {photographer && (
-        <>
-          <ItemDetail item={photographer} />
+      <>
+        <ItemDetail item={photographer} />
 
-          <div className="featured">
-            <p className="uppercase color-accent bold">Featured</p>
-            <h1 className="featured-title playfair-font">
-              Cameras & Lenses used by {photographer.name}
-            </h1>
+        <div className="featured">
+          <p className="uppercase color-accent bold">Featured</p>
+          <h1 className="featured-title playfair-font">
+            Cameras & Lenses used by {photographer?.name}
+          </h1>
 
-            <div className="featured-grid">
-              {photographer.cameras.map((item) => (
-                <Link key={item.id} to={`/cameras/${item.id}`}>
-                  <ItemCard item={item} />
-                </Link>
-              ))}
-              {photographer.lenses.map((item) => (
-                <Link key={item.id} to={`/lenses/${item.id}`}>
-                  <ItemCard item={item} />
-                </Link>
-              ))}
-            </div>
+          <div className="featured-grid">
+            {photographer?.cameras?.map((item) => (
+              <Link key={item.id} to={`/cameras/${item.id}`}>
+                <ItemCard item={item} />
+              </Link>
+            ))}
+            {photographer?.lenses?.map((item) => (
+              <Link key={item.id} to={`/lenses/${item.id}`}>
+                <ItemCard item={item} />
+              </Link>
+            ))}
           </div>
-        </>
-      )}
+        </div>
+      </>
 
       {isLoading && <Loader />}
     </main>

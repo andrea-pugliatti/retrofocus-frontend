@@ -413,6 +413,7 @@ header {
   margin-block: 4rem;
 }
 
+/* Filter controls */
 .filter-controls {
   display: flex;
   justify-content: flex-end;
@@ -451,6 +452,23 @@ header {
   top: 0.7rem;
   right: 9.6rem;
   color: var(--rf-color-primary);
+}
+
+/* Empty List */
+
+.empty-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 5rem;
+  margin: 5rem 2rem;
+  border: 2px dashed var(--rf-color-accent);
+  border-radius: 20px;
+  & > * + * {
+    margin-top: 1rem;
+  }
 }
 
 /* Detail page */

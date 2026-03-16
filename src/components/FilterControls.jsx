@@ -36,7 +36,7 @@ export default function FilterControls({ equipment = true }) {
       {equipment && mounts && (
         <div className="filter-mount">
           <ApertureIcon size={16} />
-          <select value={mount} onChange={(e) => setMount(e.target.value)}>
+          <select id="mounts" value={mount} onChange={(e) => setMount(e.target.value)}>
             <option value={""}>All Mounts</option>
             {mounts.map((mount) => {
               return (

@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 
 import { useFetch } from "../hooks/useFetch";
 
+import EmptyList from "../components/EmptyList";
 import FilterControls from "../components/FilterControls";
 import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
@@ -26,15 +27,19 @@ export default function Lenses() {
       <FilterControls />
 
       <div className="item-grid">
-        {data &&
-          data.map((lens) => (
-            <Link key={lens.id} to={`/lenses/${lens.id}`}>
-              <ItemCard item={lens} />
-            </Link>
-          ))}
+        {data?.map((lens) => (
+          <Link key={lens.id} to={`/lenses/${lens.id}`}>
+            <ItemCard item={lens} />
+          </Link>
+        ))}
       </div>
 
       {isLoading && <Loader />}
+      {data?.length == 0 && (
+        <EmptyList>
+          <p>No lens found!</p>
+        </EmptyList>
+      )}
     </main>
   );
 }

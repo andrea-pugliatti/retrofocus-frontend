@@ -8,8 +8,10 @@ export default function ItemDetail({ item }) {
   const imageEndpoint = "http://localhost:8080/images/";
 
   function getYear(date) {
-    console.log(item);
     return date.split("-").at(0);
+  }
+  if (!item) {
+    return <></>;
   }
 
   return (
