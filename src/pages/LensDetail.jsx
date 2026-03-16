@@ -1,42 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import Loader from "../components/Loader";
+import ItemDetail from "../components/ItemDetail";
 
 export default function LensDetail() {
   const { id } = useParams();
 
   const endpoint = `http://localhost:8080/api/lenses/${id}`;
-  const imageEndpoint = "http://localhost:8080/images/";
 
   const { data: lens, isLoading } = useFetch(endpoint);
 
-  function getYear(date) {
-    return date.split("-").at(0);
-  }
-
   return (
     <main className="container">
-      {lens && (
-        <div className="product-card">
-          <div className="product-image">
-            <img
-              src={lens.image ? `${imageEndpoint}${lens.image}` : null}
-              alt={lens.name}
-              className="transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-
-          <div className="product-body">
-            <h1 className="product-body-title playfair-font">{lens.name}</h1>
-            <p className="product-body-subtitle">
-              <span>{getYear(lens.yearReleased)}</span>
-              <span>{lens.format}</span>
-              <span>{lens.type}</span>
-            </p>
-            <p className="product-body-description">{lens.description}</p>
-          </div>
-        </div>
-      )}
+      {lens && <ItemDetail item={lens} />}
       {isLoading && <Loader />}
     </main>
   );
