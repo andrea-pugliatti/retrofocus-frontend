@@ -1,4 +1,3 @@
-// oxlint-disable eslint-plugin-react-hooks/exhaustive-deps
 import { useState, useEffect } from "react";
 
 export const useFetch = (url, reqOpt) => {

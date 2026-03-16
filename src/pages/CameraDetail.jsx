@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
+
 import { useFetch } from "../hooks/useFetch";
-import Loader from "../components/Loader";
+
 import ItemDetail from "../components/ItemDetail";
+import Loader from "../components/Loader";
 
 export default function CameraDetail() {
   const { id } = useParams();

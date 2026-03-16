@@ -1,12 +1,20 @@
-import ItemCard from "../components/ItemCard";
-import { Link } from "react-router-dom";
-import Loader from "../components/Loader";
+import { useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+
 import { useFetch } from "../hooks/useFetch";
+
+import FilterControls from "../components/FilterControls";
+import ItemCard from "../components/ItemCard";
+import Loader from "../components/Loader";
 
 export default function Lenses() {
   const endpoint = "http://localhost:8080/api/lenses";
+  const [searchParams] = useSearchParams();
+  const { data, isLoading, refetch } = useFetch(`${endpoint}?${searchParams}`);
 
-  const { data, isLoading } = useFetch(endpoint);
+  useEffect(() => {
+    refetch();
+  }, [searchParams]);
 
   return (
     <main className="container">
@@ -14,6 +22,8 @@ export default function Lenses() {
         <p className="uppercase color-accent">Collection</p>
         <h1 className="playfair-font">Lenses</h1>
       </div>
+
+      <FilterControls />
 
       <div className="item-grid">
         {data &&

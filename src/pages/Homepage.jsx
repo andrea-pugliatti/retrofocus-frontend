@@ -1,13 +1,13 @@
 import { useFetch } from "../hooks/useFetch";
-import Loader from "../components/Loader";
-import Jumbotron from "../components/Jumbotron";
+
 import FeaturedList from "../components/FeaturedList";
+import Jumbotron from "../components/Jumbotron";
+import Loader from "../components/Loader";
 
 export default function Homepage() {
   const endpoint = "http://localhost:8080/api/";
 
   const { data: cameras, isLoading: isLoadingCameras } = useFetch(endpoint + "cameras");
-
   const { data: lenses, isLoading: isLoadingLenses } = useFetch(endpoint + "lenses");
 
   const getPieces = () => cameras.length + lenses.length;

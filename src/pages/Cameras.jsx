@@ -1,12 +1,20 @@
-import ItemCard from "../components/ItemCard";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+
 import { useFetch } from "../hooks/useFetch";
+
+import FilterControls from "../components/FilterControls";
+import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
 
 export default function Cameras() {
   const endpoint = "http://localhost:8080/api/cameras";
+  const [searchParams] = useSearchParams();
+  const { data, isLoading, refetch } = useFetch(`${endpoint}?${searchParams}`);
 
-  const { data, isLoading } = useFetch(endpoint);
+  useEffect(() => {
+    refetch();
+  }, [searchParams]);
 
   return (
     <main className="container">
@@ -14,6 +22,8 @@ export default function Cameras() {
         <p className="uppercase color-accent">Collection</p>
         <h1 className="playfair-font">Cameras</h1>
       </div>
+
+      <FilterControls />
 
       <div className="item-grid">
         {data &&

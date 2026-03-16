@@ -1,7 +1,7 @@
-import ShieldIcon from "../components/icons/ShieldIcon";
 import ApertureIcon from "../components/icons/ApertureIcon";
-import ClockIcon from "../components/icons/ClockIcon";
 import AwardIcon from "../components/icons/AwardIcon";
+import ClockIcon from "../components/icons/ClockIcon";
+import ShieldIcon from "../components/icons/ShieldIcon";
 
 export default function AboutUs() {
   const content = [
