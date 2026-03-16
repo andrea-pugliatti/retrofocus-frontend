@@ -107,25 +107,25 @@ export default function ItemDetail({ item }) {
                       ? "Minimum Focal Length"
                       : "Focal Length"}
                   </div>
-                  <div className="detail-spec-description">{item.minFocalLength}</div>
+                  <div className="detail-spec-description">{item.minFocalLength}mm</div>
                 </div>
               )}
               {item.maxFocalLength && item.maxFocalLength != item.minFocalLength && (
                 <div className="detail-spec">
                   <div className="detail-spec-title">Maximum Focal Length</div>
-                  <div className="detail-spec-description">{item.maxFocalLength}</div>
+                  <div className="detail-spec-description">{item.maxFocalLength}mm</div>
                 </div>
               )}
               {item.minAperture && (
                 <div className="detail-spec">
                   <div className="detail-spec-title">Minimum Aperture</div>
-                  <div className="detail-spec-description">{item.minAperture}</div>
+                  <div className="detail-spec-description">f/{item.minAperture}</div>
                 </div>
               )}
               {item.maxAperture && (
                 <div className="detail-spec">
                   <div className="detail-spec-title">Maximum Aperture</div>
-                  <div className="detail-spec-description">{item.maxAperture}</div>
+                  <div className="detail-spec-description">f/{item.maxAperture}</div>
                 </div>
               )}
             </div>

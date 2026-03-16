@@ -114,7 +114,7 @@ header {
   text-decoration: none;
   color: var(--rf-color-primary);
   font-size: 0.8rem;
-  padding: 0.7rem 1.7rem;
+  padding: 1rem 1.8rem;
   text-transform: uppercase;
 }
 
@@ -185,7 +185,7 @@ header {
     justify-content: center;
 
     .jumbo-title {
-      color: var(--rf-bg-secondary);
+      color: white;
       font-size: 4rem;
     }
 
@@ -472,16 +472,19 @@ header {
     .detail-spec:nth-of-type(2n) {
       background-color: var(--rf-bg-primary);
     }
+
     .detail-spec-title {
       font-weight: 500;
       color: var(--rf-color-primary);
       font-size: 0.8rem;
     }
+
     .detail-spec-description {
       font-size: 1rem;
     }
 
     .detail-btn-back {
+      outline: 1px solid var(--rf-color-hover);
       padding: 0.5rem 1.1rem;
       color: var(--rf-color-hover);
       align-self: flex-start;
@@ -489,6 +492,7 @@ header {
       &:hover {
         color: var(--rf-color-accent);
         outline: 1px solid var(--rf-color-accent);
+        background-color: rgba(from var(--rf-color-accent) r g b / 20%);
       }
 
       &:hover svg {
