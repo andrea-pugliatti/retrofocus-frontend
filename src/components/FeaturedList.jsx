@@ -8,8 +8,10 @@ export default function FeaturedList({ list, type }) {
 
   return (
     <div className="featured">
-      <p className="uppercase color-accent bold">Featured</p>
-      <h1 className="featured-title playfair-font">{getCapitalizedType(type)}</h1>
+      <div className="container">
+        <p className="uppercase color-accent bold">Featured</p>
+        <h1 className="featured-title playfair-font">{getCapitalizedType(type)}</h1>
+      </div>
 
       <div className="featured-grid">
         {list?.map((item) => (

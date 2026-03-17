@@ -54,6 +54,14 @@
   font-weight: 500;
 }
 
+.my-1 {
+  margin-block: 7rem;
+}
+
+.my-3 {
+  margin-block: 3rem;
+}
+
 /* Globals */
 body {
   background-color: var(--rf-bg-primary);
@@ -229,17 +237,16 @@ header {
 }
 
 .featured-grid {
-  /* display: flex;
+  display: flex;
   overflow-x: scroll;
+  scrollbar-width: none;
+  margin-inline-start: 0;
+  margin-block: 2rem;
+  gap: 2rem;
 
   & > * {
     flex-shrink: 0;
-  } */
-
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-block: 2rem;
-  gap: 2rem;
+  }
 }
 
 /* Item Card */
@@ -417,41 +424,45 @@ header {
 .filter-controls {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .filter-search {
   position: relative;
 
-  & > input {
-    border: 1px solid var(--rf-color-primary);
-    margin-inline-end: 1rem;
-    padding: 0.6rem 1.2rem 0.6rem 2.5rem;
+  .lucide-search-icon {
+    z-index: 5;
+    position: absolute;
+    top: 0.7rem;
+    right: 14.7rem;
+    color: var(--rf-color-primary);
   }
-}
 
-.lucide-search-icon {
-  z-index: 5;
-  position: absolute;
-  top: 0.6rem;
-  right: 11.7rem;
-  color: var(--rf-color-primary);
+  & > input {
+    border: 1px solid rgba(52, 44, 39, 0.1);
+    margin-inline-end: 1rem;
+    padding: 0.647rem 1.2rem 0.647rem 2.5rem;
+    width: 250px;
+  }
 }
 
 .filter-mount {
   position: relative;
 
-  & > select {
-    border: 1px solid var(--rf-color-primary);
-    padding: 0.6rem 2.1rem;
+  .lucide-aperture-icon {
+    position: absolute;
+    top: 0.7rem;
+    right: 10.6rem;
     color: var(--rf-color-primary);
   }
-}
 
-.lucide-aperture-icon {
-  position: absolute;
-  top: 0.7rem;
-  right: 9.6rem;
-  color: var(--rf-color-primary);
+  & > select {
+    border: 1px solid rgba(52, 44, 39, 0.1);
+    padding: 0.6rem 2.1rem;
+    color: var(--rf-color-primary);
+    background-color: white;
+    width: 200px;
+  }
 }
 
 /* Empty List */

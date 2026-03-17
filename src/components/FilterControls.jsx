@@ -26,7 +26,6 @@ export default function FilterControls({ equipment = true }) {
         <input
           id="search"
           type="search"
-          className="filter-search"
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}

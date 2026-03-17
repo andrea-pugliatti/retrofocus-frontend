@@ -1,36 +1,6 @@
-import ApertureIcon from "../components/icons/ApertureIcon";
-import AwardIcon from "../components/icons/AwardIcon";
-import ClockIcon from "../components/icons/ClockIcon";
-import ShieldIcon from "../components/icons/ShieldIcon";
+import Values from "../components/Values";
 
 export default function AboutUs() {
-  const content = [
-    {
-      icon: <ApertureIcon />,
-      title: "Optical Excellence",
-      description:
-        "Each lens in our collection is selected for its optical character and the unique rendering it brings to an image."
-    },
-    {
-      icon: <ClockIcon />,
-      title: "Timeless Design",
-      description:
-        "From the Bauhaus-inspired lines of Leica to the industrial precision of Nikon, these cameras are objects of enduring beauty."
-    },
-    {
-      icon: <AwardIcon />,
-      title: "Historical Significance",
-      description:
-        "Every piece has a story, whether it traveled to the moon or taught millions their first exposure triangle."
-    },
-    {
-      icon: <ShieldIcon />,
-      title: "Built to Last",
-      description:
-        "Mechanical precision from an era when cameras were built for generations, not product cycles."
-    }
-  ];
-
   const milestones = [
     {
       year: "1888",
@@ -67,54 +37,48 @@ export default function AboutUs() {
 
   return (
     <main className="container">
-      <div className="page-title">
-        <p className="uppercase color-accent">About</p>
-        <h1 className="playfair-font">Why Vintage Matters</h1>
-      </div>
-      <div className="about-main">
-        <p className="about-main-text">
-          RetroFocus is a curated repository celebrating the cameras and lenses that defined modern
-          photography. We believe in preserving the craftsmanship and engineering of an era when
-          every frame counted.
-        </p>
-        <p className="about-main-text">
-          A respectful look at the cameras, lenses and photographers that shaped imaging in the 19th
-          and 20th centuries. Browse the iconic gear, learn about notable photographers, and explore
-          milestones that steered the evolution of photography as an art and a profession.
-        </p>
-        <p className="about-main-text">
-          What you'll find here: curated gear histories, biographical sketches of influential
-          practitioners, and a lightweight timeline showing how techniques and technology evolved
-          together.
-        </p>
-      </div>
+      <section className="my-3">
+        <div className="page-title">
+          <p className="uppercase color-accent">About</p>
+          <h1 className="playfair-font">Why Vintage Matters</h1>
+        </div>
+        <div className="about-main">
+          <p className="about-main-text">
+            RetroFocus is a curated repository celebrating the cameras and lenses that defined
+            modern photography. We believe in preserving the craftsmanship and engineering of an era
+            when every frame counted.
+          </p>
+          <p className="about-main-text">
+            A respectful look at the cameras, lenses and photographers that shaped imaging in the
+            19th and 20th centuries. Browse the iconic gear, learn about notable photographers, and
+            explore milestones that steered the evolution of photography as an art and a profession.
+          </p>
+          <p className="about-main-text">
+            What you'll find here: curated gear histories, biographical sketches of influential
+            practitioners, and a lightweight timeline showing how techniques and technology evolved
+            together.
+          </p>
+        </div>
+      </section>
 
-      <div className="page-title">
-        <p className="uppercase color-accent">About</p>
-        <h1 className="playfair-font">Milestones</h1>
-      </div>
+      <section className="my-3">
+        <div className="page-title">
+          <p className="uppercase color-accent">About</p>
+          <h1 className="playfair-font">Milestones</h1>
+        </div>
 
-      <div className="timeline">
-        {milestones.map((m) => (
-          <div key={m.year} className="timeline-item">
-            <span className="playfair-font bold">{m.year}</span> - {m.event}
-          </div>
-        ))}
-      </div>
+        <div className="timeline">
+          {milestones.map((m) => (
+            <div key={m.year} className="timeline-item">
+              <span className="playfair-font bold">{m.year}</span> - {m.event}
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="page-title">
-        <p className="uppercase color-accent">About</p>
-        <h1 className="playfair-font">Values</h1>
-      </div>
-      <div className="about-main-grid">
-        {content.map((c) => (
-          <div key={c.title} className="about-main-card">
-            {c.icon}
-            <h3 className="playfair-font">{c.title}</h3>
-            <p>{c.description}</p>
-          </div>
-        ))}
-      </div>
+      <section className="my-3">
+        <Values />
+      </section>
     </main>
   );
 }

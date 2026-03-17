@@ -3,6 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 import FeaturedList from "../components/FeaturedList";
 import Jumbotron from "../components/Jumbotron";
 import Loader from "../components/Loader";
+import Values from "../components/Values";
 
 export default function Homepage() {
   const endpoint = "http://localhost:8080/api/";
@@ -17,16 +18,18 @@ export default function Homepage() {
   return (
     <>
       {cameras && lenses && <Jumbotron pieces={getPieces()} brands={24} decades={12} />}
-      <section className="container">
-        <>
-          <FeaturedList list={cameras?.slice(0, 5)} type={"cameras"} />
-          {isLoadingCameras && <Loader />}
-        </>
+      <section className="my-1">
+        <FeaturedList list={cameras?.slice(0, 7)} type={"cameras"} />
+        {isLoadingCameras && <Loader />}
+      </section>
 
-        <>
-          <FeaturedList list={lenses?.slice(0, 5)} type={"lenses"} />
-          {isLoadingLenses && <Loader />}
-        </>
+      <section className="my-1">
+        <FeaturedList list={lenses?.slice(0, 7)} type={"lenses"} />
+        {isLoadingLenses && <Loader />}
+      </section>
+
+      <section className="my-1">
+        <Values />
       </section>
     </>
   );
