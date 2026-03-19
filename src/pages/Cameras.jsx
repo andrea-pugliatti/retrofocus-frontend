@@ -14,7 +14,11 @@ export default function Cameras() {
   const { data, isLoading, refetch } = useFetch(`${endpoint}?${searchParams}`);
 
   useEffect(() => {
-    refetch();
+    const getData = setTimeout(() => {
+      refetch();
+    }, 300);
+
+    return () => clearTimeout(getData);
   }, [searchParams]);
 
   return (

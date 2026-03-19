@@ -215,6 +215,7 @@ header {
       font-weight: 200;
       font-size: 0.8rem;
       color: var(--rf-bg-primary);
+
       .jumbo-display-number {
         font-family: "Playfair Display", serif;
         font-size: 2rem;
