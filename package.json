@@ -28,5 +28,6 @@
   },
   "overrides": {
     "vite": "^8.0.0"
-  }
+  },
+  "packageManager": "npm@11.12.0"
 }

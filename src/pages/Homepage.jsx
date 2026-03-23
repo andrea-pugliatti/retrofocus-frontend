@@ -12,8 +12,6 @@ export default function Homepage() {
   const { data: lenses, isLoading: isLoadingLenses } = useFetch(endpoint + "lenses");
 
   const getPieces = () => cameras?.length + lenses?.length;
-  // const getBrands = () => {}
-  // const getDecades = () => {}
 
   return (
     <>
