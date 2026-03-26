@@ -1,13 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import DefaultLayout from "./layouts/DefaultLayout";
-import Homepage from "./pages/Homepage";
-import Cameras from "./pages/Cameras";
-import Lenses from "./pages/Lenses";
+
 import AboutUs from "./pages/AboutUs";
 import CameraDetail from "./pages/CameraDetail";
+import Cameras from "./pages/Cameras";
+import Homepage from "./pages/Homepage";
 import LensDetail from "./pages/LensDetail";
-import Photographers from "./pages/Photographers";
+import Lenses from "./pages/Lenses";
+import NotFound from "./pages/NotFound";
 import PhotographerDetail from "./pages/PhotographerDetail";
+import Photographers from "./pages/Photographers";
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
           <Route path="/photographers" Component={Photographers} />
           <Route path="/photographers/:id" Component={PhotographerDetail} />
           <Route path="/about" Component={AboutUs} />
+          <Route path="*" Component={NotFound} />
         </Route>
       </Routes>
     </BrowserRouter>
