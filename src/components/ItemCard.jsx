@@ -4,8 +4,6 @@ import CameraIcon from "./icons/CameraIcon";
 import ArrowIcon from "./icons/ArrowIcon";
 
 export default function ItemCard({ item }) {
-  const imageEndpoint = "http://localhost:8080/images/";
-
   function getYear(date) {
     return date.split("-").at(0);
   }
@@ -13,7 +11,7 @@ export default function ItemCard({ item }) {
   return (
     <div className="item-card">
       <div className="item-image">
-        <img src={item.image ? imageEndpoint + item.image : null} alt={item.name} />
+        <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${item.image}`} alt={item.name} />
       </div>
 
       <div className="item-body">

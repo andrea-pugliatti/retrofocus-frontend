@@ -5,11 +5,10 @@ import CalendarIcon from "./icons/CalendarIcon";
 import CameraIcon from "./icons/CameraIcon";
 
 export default function ItemDetail({ item }) {
-  const imageEndpoint = "http://localhost:8080/images/";
-
   function getYear(date) {
     return date.split("-").at(0);
   }
+
   if (!item) {
     return <></>;
   }
@@ -17,7 +16,7 @@ export default function ItemDetail({ item }) {
   return (
     <div className="detail-main">
       <div className="detail-image-container">
-        <img src={imageEndpoint + item.image} alt={item.name} />
+        <img src={`${import.meta.env.VITE_BACKEND_URL}/images/${item.image}`} alt={item.name} />
       </div>
 
       <div className="detail-body-container">

@@ -6,18 +6,52 @@ import ApertureIcon from "./icons/ApertureIcon";
 
 export default function FilterControls({ equipment = true }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams?.get?.("q") || "");
-  const [mount, setMount] = useState(searchParams?.get?.("m") || "");
+  const searchParamsString = searchParams.toString();
+  const [query, setQuery] = useState(searchParams.get("q") || "");
+  const [mount, setMount] = useState(searchParams.get("m") || "");
 
-  const { data: mounts } = useFetch("http://localhost:8080/api/mounts");
+  const { data: mounts } = useFetch(
+    equipment ? `${import.meta.env.VITE_BACKEND_URL}/api/mounts` : null
+  );
 
   useEffect(() => {
-    setSearchParams({ q: query, m: mount });
+    const nextQuery = searchParams.get("q") || "";
+    const nextMount = searchParams.get("m") || "";
 
-    if (query == "" && mount == "") {
-      setSearchParams({});
+    if (query !== nextQuery) {
+      setQuery(nextQuery);
     }
-  }, [query, mount, setSearchParams]);
+
+    if (mount !== nextMount) {
+      setMount(nextMount);
+    }
+  }, [searchParamsString]);
+
+  useEffect(() => {
+    const syncParams = setTimeout(() => {
+      const nextSearchParams = new URLSearchParams(searchParamsString);
+
+      if (query) {
+        nextSearchParams.set("q", query);
+      } else {
+        nextSearchParams.delete("q");
+      }
+
+      if (equipment && mount) {
+        nextSearchParams.set("m", mount);
+      } else {
+        nextSearchParams.delete("m");
+      }
+
+      const nextSearchString = nextSearchParams.toString();
+
+      if (nextSearchString !== searchParamsString) {
+        setSearchParams(nextSearchParams, { replace: true });
+      }
+    }, 300);
+
+    return () => clearTimeout(syncParams);
+  }, [equipment, mount, query, searchParamsString, setSearchParams]);
 
   return (
     <div className="filter-controls">

@@ -1,25 +1,21 @@
-import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 import { useFetch } from "../hooks/useFetch";
 
 import EmptyList from "../components/EmptyList";
+import ErrorState from "../components/ErrorState";
 import FilterControls from "../components/FilterControls";
 import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
 
 export default function Cameras() {
-  const endpoint = "http://localhost:8080/api/cameras";
   const [searchParams] = useSearchParams();
-  const { data, isLoading, refetch } = useFetch(`${endpoint}?${searchParams}`);
-
-  useEffect(() => {
-    const getData = setTimeout(() => {
-      refetch();
-    }, 300);
-
-    return () => clearTimeout(getData);
-  }, [searchParams]);
+  const searchString = searchParams.toString();
+  const { data, error, isLoading, refetch } = useFetch(
+    searchString
+      ? `${`${import.meta.env.VITE_BACKEND_URL}/api/cameras`}?${searchString}`
+      : `${import.meta.env.VITE_BACKEND_URL}/api/cameras`
+  );
 
   return (
     <main className="container">
@@ -30,18 +26,27 @@ export default function Cameras() {
 
       <FilterControls />
 
-      <div className="item-grid">
-        {data?.map((camera) => (
-          <Link key={camera.id} to={`/cameras/${camera.id}`}>
-            <ItemCard item={camera} />
-          </Link>
-        ))}
-      </div>
+      {data && (
+        <div className="item-grid">
+          {data.map((camera) => (
+            <Link key={camera.id} to={`/cameras/${camera.id}`}>
+              <ItemCard item={camera} />
+            </Link>
+          ))}
+        </div>
+      )}
 
       {isLoading && <Loader />}
+      {error && (
+        <ErrorState
+          title="Unable to load cameras."
+          description={error.message}
+          onAction={refetch}
+        />
+      )}
       {data?.length == 0 && (
         <EmptyList>
-          <p>No camera found!</p>
+          <p className="playfair-font">No camera found</p>
         </EmptyList>
       )}
     </main>

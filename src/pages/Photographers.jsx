@@ -1,25 +1,21 @@
-import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 import { useFetch } from "../hooks/useFetch";
 
 import EmptyList from "../components/EmptyList";
+import ErrorState from "../components/ErrorState";
 import FilterControls from "../components/FilterControls";
 import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
 
 export default function Photographers() {
-  const endpoint = "http://localhost:8080/api/photographers";
   const [searchParams] = useSearchParams();
-  const { data, isLoading, refetch } = useFetch(`${endpoint}?${searchParams}`);
-
-  useEffect(() => {
-    const getData = setTimeout(() => {
-      refetch();
-    }, 300);
-
-    return () => clearTimeout(getData);
-  }, [searchParams]);
+  const searchString = searchParams.toString();
+  const { data, error, isLoading, refetch } = useFetch(
+    searchString
+      ? `${import.meta.env.VITE_BACKEND_URL}/api/photographers?${searchString}`
+      : `${import.meta.env.VITE_BACKEND_URL}/api/photographers`
+  );
 
   return (
     <main className="container">
@@ -30,18 +26,27 @@ export default function Photographers() {
 
       <FilterControls equipment={false} />
 
-      <div className="item-grid">
-        {data?.map((photographer) => (
-          <Link key={photographer.id} to={`/photographers/${photographer.id}`}>
-            <ItemCard item={photographer} />
-          </Link>
-        ))}
-      </div>
+      {data && (
+        <div className="item-grid">
+          {data.map((photographer) => (
+            <Link key={photographer.id} to={`/photographers/${photographer.id}`}>
+              <ItemCard item={photographer} />
+            </Link>
+          ))}
+        </div>
+      )}
 
       {isLoading && <Loader />}
+      {error && (
+        <ErrorState
+          title="Unable to load photographers."
+          description={error.message}
+          onAction={refetch}
+        />
+      )}
       {data?.length == 0 && (
         <EmptyList>
-          <p>No photographer found!</p>
+          <p className="playfair-font">No photographer found</p>
         </EmptyList>
       )}
     </main>
