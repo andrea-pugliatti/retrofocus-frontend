@@ -7,6 +7,8 @@ import ItemDetail from "../components/ItemDetail";
 import Loader from "../components/Loader";
 import NotFoundState from "../components/NotFoundState";
 
+import type Camera from "../util/camera";
+
 export default function CameraDetail() {
   const { id } = useParams();
   const {
@@ -14,7 +16,7 @@ export default function CameraDetail() {
     error,
     isLoading,
     refetch
-  } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/api/cameras/${id}`);
+  } = useFetch<Camera>(`${import.meta.env.VITE_BACKEND_URL}/api/cameras/${id}`);
 
   return (
     <main className="container">

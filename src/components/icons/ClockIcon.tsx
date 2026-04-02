@@ -1,4 +1,4 @@
-export default function ClockIcon({ size }) {
+export default function ClockIcon({ size }: { size?: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

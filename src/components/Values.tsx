@@ -1,7 +1,7 @@
-import ApertureIcon from "../components/icons/ApertureIcon";
-import AwardIcon from "../components/icons/AwardIcon";
-import ClockIcon from "../components/icons/ClockIcon";
-import ShieldIcon from "../components/icons/ShieldIcon";
+import ApertureIcon from "./icons/ApertureIcon";
+import AwardIcon from "./icons/AwardIcon";
+import ClockIcon from "./icons/ClockIcon";
+import ShieldIcon from "./icons/ShieldIcon";
 
 export default function Values() {
   const content = [

@@ -7,6 +7,8 @@ import ItemDetail from "../components/ItemDetail";
 import Loader from "../components/Loader";
 import NotFoundState from "../components/NotFoundState";
 
+import type Lens from "../util/lens";
+
 export default function LensDetail() {
   const { id } = useParams();
   const {
@@ -14,7 +16,7 @@ export default function LensDetail() {
     error,
     isLoading,
     refetch
-  } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/api/lenses/${id}`);
+  } = useFetch<Lens>(`${import.meta.env.VITE_BACKEND_URL}/api/lenses/${id}`);
 
   return (
     <main className="container">

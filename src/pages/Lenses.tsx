@@ -8,29 +8,31 @@ import FilterControls from "../components/FilterControls";
 import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
 
-export default function Cameras() {
+import type Lens from "../util/lens";
+
+export default function Lenses() {
   const [searchParams] = useSearchParams();
   const searchString = searchParams.toString();
-  const { data, error, isLoading, refetch } = useFetch(
+  const { data, error, isLoading, refetch } = useFetch<Lens[]>(
     searchString
-      ? `${`${import.meta.env.VITE_BACKEND_URL}/api/cameras`}?${searchString}`
-      : `${import.meta.env.VITE_BACKEND_URL}/api/cameras`
+      ? `${import.meta.env.VITE_BACKEND_URL}/api/lenses?${searchString}`
+      : `${import.meta.env.VITE_BACKEND_URL}/api/lenses`
   );
 
   return (
     <main className="container">
       <div className="page-title">
         <p className="uppercase color-accent">Collection</p>
-        <h1 className="playfair-font">Cameras</h1>
+        <h1 className="playfair-font">Lenses</h1>
       </div>
 
       <FilterControls />
 
       {data && (
         <div className="item-grid">
-          {data.map((camera) => (
-            <Link key={camera.id} to={`/cameras/${camera.id}`}>
-              <ItemCard item={camera} />
+          {data.map((lens) => (
+            <Link key={lens.id} to={`/lenses/${lens.id}`}>
+              <ItemCard item={lens} />
             </Link>
           ))}
         </div>
@@ -38,15 +40,11 @@ export default function Cameras() {
 
       {isLoading && <Loader />}
       {error && (
-        <ErrorState
-          title="Unable to load cameras."
-          description={error.message}
-          onAction={refetch}
-        />
+        <ErrorState title="Unable to load lenses." description={error.message} onAction={refetch} />
       )}
       {data?.length == 0 && (
         <EmptyList>
-          <p className="playfair-font">No camera found</p>
+          <p className="playfair-font">No lens found</p>
         </EmptyList>
       )}
     </main>

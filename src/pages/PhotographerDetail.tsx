@@ -8,6 +8,8 @@ import ItemDetail from "../components/ItemDetail";
 import Loader from "../components/Loader";
 import NotFoundState from "../components/NotFoundState";
 
+import type Photographer from "../util/photographer";
+
 export default function PhotographerDetail() {
   const { id } = useParams();
   const {
@@ -15,7 +17,7 @@ export default function PhotographerDetail() {
     error,
     isLoading,
     refetch
-  } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/api/photographers/${id}`);
+  } = useFetch<Photographer>(`${import.meta.env.VITE_BACKEND_URL}/api/photographers/${id}`);
 
   return (
     <main className="container">

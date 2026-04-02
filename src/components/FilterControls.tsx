@@ -3,16 +3,20 @@ import { useSearchParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import SearchIcon from "./icons/SearchIcon";
 import ApertureIcon from "./icons/ApertureIcon";
+import type Mount from "../util/mount";
 
 export default function FilterControls({ equipment = true }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const searchParamsString = searchParams.toString();
   const [query, setQuery] = useState(searchParams.get("q") || "");
   const [mount, setMount] = useState(searchParams.get("m") || "");
+  let mounts: Mount[] = [];
 
-  const { data: mounts } = useFetch(
-    equipment ? `${import.meta.env.VITE_BACKEND_URL}/api/mounts` : null
-  );
+  if (equipment) {
+    const { data } = useFetch<Mount[]>(`${import.meta.env.VITE_BACKEND_URL}/api/mounts`);
+    mounts = data ? data : [];
+  }
+
 
   useEffect(() => {
     const nextQuery = searchParams.get("q") || "";

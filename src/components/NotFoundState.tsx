@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NotFoundState({
   title = "This page never made it into the contact sheet.",
-  description
+  description = ""
 }) {
   return (
     <section className="not-found-page">

@@ -1,4 +1,6 @@
-export default function EmptyList({ children }) {
+import type { ReactNode } from "react";
+
+export default function EmptyList({ children }: {children: ReactNode}) {
   return (
     <div className="empty-list">
       {children}

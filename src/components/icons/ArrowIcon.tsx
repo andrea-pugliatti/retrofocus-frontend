@@ -1,4 +1,4 @@
-export default function SearchIcon({ size }) {
+export default function ArrowIcon({ size }: { size?: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,10 +10,10 @@ export default function SearchIcon({ size }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="lucide lucide-search-icon lucide-search"
+      className="lucide lucide-arrow-right-icon lucide-arrow-right"
     >
-      <path d="m21 21-4.34-4.34" />
-      <circle cx="11" cy="11" r="8" />
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
     </svg>
   );
 }

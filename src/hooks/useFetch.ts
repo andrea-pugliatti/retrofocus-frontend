@@ -1,12 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useFetch = (url, reqOpt) => {
-  const [data, setData] = useState();
-  const [error, setError] = useState();
+interface FetchError {
+  status?: number;
+  data?: string;
+  message: string;
+}
+
+export const useFetch = <T>(url: string, reqOpt: RequestInit = {}) => {
+  const [data, setData] = useState<T>();
+  const [error, setError] = useState<FetchError>();
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const requestIdRef = useRef(0);
-  const controllerRef = useRef();
+  const controllerRef = useRef<AbortController>(null);
 
   const fetchData = async () => {
     if (!url) {
@@ -31,17 +37,11 @@ export const useFetch = (url, reqOpt) => {
 
     try {
       const res = await fetch(url, {
-        ...(reqOpt || {}),
+        ...reqOpt,
         signal: controller.signal
       });
-      const contentType = res.headers.get("content-type") || "";
-      let responseData;
 
-      if (res.status !== 204) {
-        responseData = contentType.includes("application/json")
-          ? await res.json()
-          : await res.text();
-      }
+      let responseData: T = await res.json();
 
       if (requestId !== requestIdRef.current || controller.signal.aborted) {
         return;
@@ -56,15 +56,12 @@ export const useFetch = (url, reqOpt) => {
         setData(undefined);
         setError({
           status: res.status,
-          data: responseData,
-          message:
-            responseData?.message ||
-            responseData?.error ||
-            `Request failed with status ${res.status}.`
+          data: undefined,
+          message: `Request failed with status ${res.status}.`
         });
       }
     } catch (e) {
-      if (e?.name === "AbortError") {
+      if (e instanceof Error && e.name === "AbortError") {
         return;
       }
 
@@ -76,6 +73,7 @@ export const useFetch = (url, reqOpt) => {
       setData(undefined);
       setError({
         status: undefined,
+        data: undefined,
         message: e instanceof Error ? e.message : "Unexpected request error."
       });
     } finally {
@@ -91,7 +89,7 @@ export const useFetch = (url, reqOpt) => {
     return () => {
       controllerRef.current?.abort();
     };
-  }, [url, reqOpt]);
+  }, [url]);
 
   const refetch = () => fetchData();
 

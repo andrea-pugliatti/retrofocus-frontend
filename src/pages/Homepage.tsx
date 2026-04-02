@@ -6,27 +6,30 @@ import Jumbotron from "../components/Jumbotron";
 import Loader from "../components/Loader";
 import Values from "../components/Values";
 
+import type Camera from "../util/camera";
+import type Lens from "../util/lens";
+
 export default function Homepage() {
   const {
     data: cameras,
     error: camerasError,
     isLoading: isLoadingCameras,
     refetch: refetchCameras
-  } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/api/cameras`);
+  } = useFetch<Camera[]>(`${import.meta.env.VITE_BACKEND_URL}/api/cameras`);
   const {
     data: lenses,
     error: lensesError,
     isLoading: isLoadingLenses,
     refetch: refetchLenses
-  } = useFetch(`${import.meta.env.VITE_BACKEND_URL}/api/lenses`);
+  } = useFetch<Lens[]>(`${import.meta.env.VITE_BACKEND_URL}/api/lenses`);
 
-  const getPieces = () => cameras?.length + lenses?.length;
+  const getPieces = (cameras: Camera[], lenses: Lens[]) => cameras?.length + lenses?.length;
 
   return (
     <>
-      {cameras && lenses && <Jumbotron pieces={getPieces()} brands={24} decades={12} />}
+      {cameras && lenses && <Jumbotron pieces={getPieces(cameras, lenses)} brands={24} decades={12} />}
       <section className="my-1">
-        <FeaturedList list={cameras?.slice(0, 7)} type={"cameras"} />
+        {cameras &&<FeaturedList list={cameras?.slice(0, 7)} type={"cameras"} />}
         {isLoadingCameras && <Loader />}
         {camerasError && (
           <ErrorState
@@ -38,7 +41,7 @@ export default function Homepage() {
       </section>
 
       <section className="my-1">
-        <FeaturedList list={lenses?.slice(0, 7)} type={"lenses"} />
+        {lenses &&<FeaturedList list={lenses?.slice(0, 7)} type={"lenses"} />}
         {isLoadingLenses && <Loader />}
         {lensesError && (
           <ErrorState

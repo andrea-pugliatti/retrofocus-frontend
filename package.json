@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix",
     "fmt": "oxfmt",
@@ -24,6 +24,7 @@
     "globals": "^16.5.0",
     "oxfmt": "^0.37.0",
     "oxlint": "^1.55.0",
+    "typescript": "^6.0.2",
     "vite": "^8.0.0"
   },
   "overrides": {

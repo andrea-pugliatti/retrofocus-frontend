@@ -8,10 +8,12 @@ import FilterControls from "../components/FilterControls";
 import ItemCard from "../components/ItemCard";
 import Loader from "../components/Loader";
 
+import type Photographer from "../util/photographer";
+
 export default function Photographers() {
   const [searchParams] = useSearchParams();
   const searchString = searchParams.toString();
-  const { data, error, isLoading, refetch } = useFetch(
+  const { data, error, isLoading, refetch } = useFetch<Photographer[]>(
     searchString
       ? `${import.meta.env.VITE_BACKEND_URL}/api/photographers?${searchString}`
       : `${import.meta.env.VITE_BACKEND_URL}/api/photographers`

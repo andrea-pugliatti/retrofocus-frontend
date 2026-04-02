@@ -3,10 +3,9 @@ import ApertureIcon from "./icons/ApertureIcon";
 import CameraIcon from "./icons/CameraIcon";
 import ArrowIcon from "./icons/ArrowIcon";
 
-export default function ItemCard({ item }) {
-  function getYear(date) {
-    return date.split("-").at(0);
-  }
+import { type Item, isCamera, isPhotographer, getYearFromItem } from "../util/item";
+
+export default function ItemCard({ item }: { item: Item }) {
 
   return (
     <div className="item-card">
@@ -20,30 +19,26 @@ export default function ItemCard({ item }) {
           <div className="item-body-subtitle">
             <div className="icon-flex">
               <CalendarIcon size={16} />
-              {item.yearReleased ? (
-                <div> {getYear(item.yearReleased)}</div>
-              ) : (
-                <div> {getYear(item.birthday)}</div>
-              )}
+              <div>{getYearFromItem(item)}</div>
             </div>
 
-            {item.format && (
+            {isCamera(item) && (
               <div className="icon-flex">
                 <ApertureIcon size={16} />
-                <div> {item.format}</div>
+                <div>{item.format}</div>
               </div>
             )}
 
-            {item.type && (
+            {isCamera(item) && (
               <div className="icon-flex">
                 <CameraIcon size={18} />
-                <div> {item.type}</div>
+                <div>{item.type}</div>
               </div>
             )}
           </div>
 
           <p className="item-body-description">
-            {item.description ? item.description : item.biography}
+            {isPhotographer(item) ? item.biography : item.description}
           </p>
         </div>
 

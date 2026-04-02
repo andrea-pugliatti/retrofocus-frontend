@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Jumbotron({ pieces, brands, decades }) {
+export default function Jumbotron({ pieces, brands, decades }: {pieces: number, brands: number, decades: number}) {
   return (
     <section className="jumbotron">
       <div className="jumbo-image">

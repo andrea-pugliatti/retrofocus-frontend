@@ -2,7 +2,7 @@ export default function ErrorState({
   title = "Unable to load this section.",
   description = "Something interrupted the archive request. Please try again.",
   actionLabel = "Try Again",
-  onAction
+  onAction = () => {}
 }) {
   return (
     <div className="error-state">
