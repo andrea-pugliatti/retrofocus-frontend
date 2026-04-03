@@ -1,14 +1,7 @@
-export default function Loader() {
-  const size = "xl";
-  const label = "Loading...";
-  const sizeMap = {
-    sm: 56,
-    md: 96,
-    lg: 144,
-    xl: 192
-  };
+type LoaderProps = { size?: number; label?: string };
 
-  const dimension = sizeMap[size];
+export default function Loader({ size = 192, label = "Loading..." }: LoaderProps) {
+  const dimension = size;
   const height = dimension * 0.8;
 
   return (

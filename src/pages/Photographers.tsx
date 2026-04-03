@@ -30,7 +30,7 @@ export default function Photographers() {
 
       {data && (
         <div className="item-grid">
-          {data.map((photographer) => (
+          {data.map((photographer: Photographer) => (
             <Link key={photographer.id} to={`/photographers/${photographer.id}`}>
               <ItemCard item={photographer} />
             </Link>

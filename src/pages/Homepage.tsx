@@ -27,9 +27,11 @@ export default function Homepage() {
 
   return (
     <>
-      {cameras && lenses && <Jumbotron pieces={getPieces(cameras, lenses)} brands={24} decades={12} />}
+      {cameras && lenses && (
+        <Jumbotron pieces={getPieces(cameras, lenses)} brands={24} decades={12} />
+      )}
       <section className="my-1">
-        {cameras &&<FeaturedList list={cameras?.slice(0, 7)} type={"cameras"} />}
+        {cameras && <FeaturedList list={cameras?.slice(0, 7)} type={"cameras"} />}
         {isLoadingCameras && <Loader />}
         {camerasError && (
           <ErrorState
@@ -41,7 +43,7 @@ export default function Homepage() {
       </section>
 
       <section className="my-1">
-        {lenses &&<FeaturedList list={lenses?.slice(0, 7)} type={"lenses"} />}
+        {lenses && <FeaturedList list={lenses?.slice(0, 7)} type={"lenses"} />}
         {isLoadingLenses && <Loader />}
         {lensesError && (
           <ErrorState

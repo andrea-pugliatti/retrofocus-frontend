@@ -30,7 +30,7 @@ export default function Lenses() {
 
       {data && (
         <div className="item-grid">
-          {data.map((lens) => (
+          {data.map((lens: Lens) => (
             <Link key={lens.id} to={`/lenses/${lens.id}`}>
               <ItemCard item={lens} />
             </Link>

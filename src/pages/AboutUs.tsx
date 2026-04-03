@@ -1,7 +1,12 @@
 import Values from "../components/Values";
 
+type Milestone = {
+  year: string;
+  event: string;
+};
+
 export default function AboutUs() {
-  const milestones = [
+  const milestones: Milestone[] = [
     {
       year: "1888",
       event:
@@ -68,7 +73,7 @@ export default function AboutUs() {
         </div>
 
         <div className="timeline">
-          {milestones.map((m) => (
+          {milestones.map((m: Milestone) => (
             <div key={m.year} className="timeline-item">
               <span className="playfair-font bold">{m.year}</span> - {m.event}
             </div>

@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 
+type NotFoundStateProps = {
+  title?: string;
+  description: string;
+};
+
 export default function NotFoundState({
   title = "This page never made it into the contact sheet.",
-  description = ""
-}) {
+  description
+}: NotFoundStateProps) {
   return (
     <section className="not-found-page">
       <div className="not-found-container">

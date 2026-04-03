@@ -30,7 +30,7 @@ export default function Cameras() {
 
       {data && (
         <div className="item-grid">
-          {data.map((camera) => (
+          {data.map((camera: Camera) => (
             <Link key={camera.id} to={`/cameras/${camera.id}`}>
               <ItemCard item={camera} />
             </Link>

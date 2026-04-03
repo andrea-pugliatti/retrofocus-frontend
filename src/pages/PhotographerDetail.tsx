@@ -8,6 +8,8 @@ import ItemDetail from "../components/ItemDetail";
 import Loader from "../components/Loader";
 import NotFoundState from "../components/NotFoundState";
 
+import type Camera from "../util/camera";
+import type Lens from "../util/lens";
 import type Photographer from "../util/photographer";
 
 export default function PhotographerDetail() {
@@ -32,12 +34,12 @@ export default function PhotographerDetail() {
             </h1>
 
             <div className="featured-grid">
-              {photographer.cameras?.map((item) => (
+              {photographer.cameras?.map((item: Camera) => (
                 <Link key={item.id} to={`/cameras/${item.id}`}>
                   <ItemCard item={item} />
                 </Link>
               ))}
-              {photographer.lenses?.map((item) => (
+              {photographer.lenses?.map((item: Lens) => (
                 <Link key={item.id} to={`/lenses/${item.id}`}>
                   <ItemCard item={item} />
                 </Link>

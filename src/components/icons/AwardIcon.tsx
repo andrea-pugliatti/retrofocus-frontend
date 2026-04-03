@@ -1,4 +1,6 @@
-export default function AwardIcon({ size }: { size?: number }) {
+import type { Icon } from "../../util/icon";
+
+export default function AwardIcon({ size }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

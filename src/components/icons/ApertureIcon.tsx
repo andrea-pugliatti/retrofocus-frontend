@@ -1,4 +1,6 @@
-export default function ApertureIcon({ size }: { size?: number }) {
+import type { Icon } from "../../util/icon";
+
+export default function ApertureIcon({ size }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

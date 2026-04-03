@@ -1,4 +1,9 @@
-export default function Logo({ height, width }: {height: number, width: number}) {
+type LogoProps = {
+  height: number;
+  width: number;
+};
+
+export default function Logo({ height, width }: LogoProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
