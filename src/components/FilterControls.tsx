@@ -17,7 +17,6 @@ export default function FilterControls({ equipment = true }) {
     mounts = data ? data : [];
   }
 
-
   useEffect(() => {
     const nextQuery = searchParams.get("q") || "";
     const nextMount = searchParams.get("m") || "";

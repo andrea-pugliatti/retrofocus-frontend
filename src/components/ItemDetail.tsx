@@ -3,10 +3,16 @@ import ApertureIcon from "./icons/ApertureIcon";
 import ArrowIcon from "./icons/ArrowIcon";
 import CalendarIcon from "./icons/CalendarIcon";
 import CameraIcon from "./icons/CameraIcon";
-import { type Item, isCamera, isLens, isPhotographer, getYearFromItem, getYearFromString } from "../util/item";
+import {
+  type Item,
+  isCamera,
+  isLens,
+  isPhotographer,
+  getYearFromItem,
+  getYearFromString
+} from "../util/item";
 
 export default function ItemDetail({ item }: { item: Item }) {
-
   if (!item) {
     return <></>;
   }
@@ -62,7 +68,9 @@ export default function ItemDetail({ item }: { item: Item }) {
                   {item.yearDiscontinued && (
                     <div className="detail-spec">
                       <div className="detail-spec-title">Year Discontinued</div>
-                      <div className="detail-spec-description">{getYearFromString(item.yearDiscontinued)}</div>
+                      <div className="detail-spec-description">
+                        {getYearFromString(item.yearDiscontinued)}
+                      </div>
                     </div>
                   )}
                   <div className="detail-spec">

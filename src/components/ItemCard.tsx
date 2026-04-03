@@ -6,7 +6,6 @@ import ArrowIcon from "./icons/ArrowIcon";
 import { type Item, isCamera, isPhotographer, getYearFromItem } from "../util/item";
 
 export default function ItemCard({ item }: { item: Item }) {
-
   return (
     <div className="item-card">
       <div className="item-image">
