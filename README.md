@@ -1,54 +1,121 @@
-# Progetto Finale
+# Retrofocus - Guest Frontend
 
-**Descrizione**
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.0-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 
-L’obiettivo di questo progetto è creare un backoffice in Spring e un frontend in React per gestire e visualizzare un insieme di dati a vostra scelta.
+[English](#english)
 
-## Parte 1: Backoffice in Spring
+---
 
-Dovrete sviluppare un backoffice con **autenticazione gestita da Spring Security**. Una volta loggato, l'utente potrà gestire un'entità a scelta, come:
+### Descrizione del Progetto
 
-- Videogiochi 🎮
-- Film 🎬
-- Album musicali 💿
-- Libri o Fumetti📚
+**Retrofocus** è un'applicazione end-to-end completa per la gestione di un catalogo fotografico vintage (macchine fotografiche, obiettivi, innesti e fotografi). Questo repository contiene il **Frontend (Guest)**, sviluppato in React per permettere ai visitatori di esplorare la collezione in modo interattivo e intuitivo.
 
-…o qualsiasi altra entità vi venga in mente!
+L'interfaccia è stata progettata per essere elegante e performante, consumando i dati forniti dalle API REST del backend.
 
-Per questa entità dovrete implementare tutte le operazioni CRUD (Creazione, Lettura, Aggiornamento, Eliminazione).
+### Caratteristiche Principali
 
-Oltre a questa, dovrà esserci **almeno una seconda entità collegata alla prima con una relazione 1-N o N-N**.
+- **Single Page Application (SPA)**: Navigazione fluida e veloce grazie a React Router.
+- **Visualizzazione Catalogo**: Esplorazione completa di macchine fotografiche, obiettivi e fotografi con dettagli approfonditi.
+- **Filtri Dinamici**: Sistema di filtraggio in tempo reale per trovare rapidamente gli elementi desiderati.
+- **Design Responsive**: Interfaccia ottimizzata per tutti i dispositivi, dai desktop agli smartphone.
+- **Integrazione API**: Comunicazione efficiente con il backend tramite fetch API e custom hooks.
 
-Esempi:
+### Struttura della Codebase
 
-- Se avete scelto i videogiochi, potreste avere la tabella delle console su cui è disponibile un gioco (PS5, Xbox, Switch).
-- Se avete scelto i film, potreste collegarli ai generi cinematografici (Azione, Commedia, Horror).
-- Potreste anche scegliere di avere 2 entità relazionate, ad esempio, nel caso di videogiochi, sia la console che il genere (Avventura, Picchiaduro, GDR)
+Il progetto segue una struttura organizzata per componenti e responsabilità:
 
-Tutto il backoffice deve essere realizzato usando Thymeleaf, ma potete aiutarvi con JS per eventuali necessità di logiche frontend. Siete anche liberi di usare librerie JavaScript esterne se vi torna comodo.
+- `src/components/`: Componenti UI riutilizzabili (Card, Loader, Footer, Header, Icone).
+- `src/pages/`: Componenti principali che rappresentano le diverse viste dell'applicazione.
+- `src/hooks/`: Hook personalizzati per la gestione della logica e del recupero dati (es. `useFetch`).
+- `src/layouts/`: Definizione del layout globale dell'applicazione.
+- `src/util/`: Classi di utilità, tipi TypeScript e funzioni helper per la gestione dei dati.
+- `src/assets/`: Risorse statiche come immagini e fogli di stile globali.
 
-## Parte 2: Sito guest in React
+### Tech Stack
 
-Per i visitatori non autenticati (guest) dovrete creare un'app in **React** che permetta di:
+- **React 19**
+- **TypeScript 6**
+- **Vite 8**
+- **React Router 7**
+- **CSS3 (Custom Properties & CSS Nesting)**
+- **Oxlint / Oxfmt**
 
-    ✅ Visualizzare la lista degli elementi (videogiochi, film, ecc.)
-    ✅ Vedere i dettagli di un singolo elemento
-    ✅ Mostrare anche le informazioni collegate (es. le categorie di appartenenza)
+---
 
-Questa app dovrà comunicare con il backend tramite **chiamate AJAX ad API REST**, quindi nel backend dovrete creare un set di **endpoint API** per recuperare i dati.
+## English
 
-## 🎯Obiettivo
+### Project Overview
 
-Alla fine di questo progetto avrete realizzato un’app completa con:
+**Retrofocus** is a complete end-to-end application designed to manage a vintage photography catalog (cameras, lenses, mounts, and photographers). This repository hosts the **Frontend (Guest)**, developed in React to allow visitors to explore the collection in an interactive and intuitive way.
 
-    ✅ Un backoffice in Spring con autenticazione e gestione CRUD
-    ✅ Un frontend in React che mostra i dati in modo chiaro e interattivo
-    ✅ Relazioni tra le entità per una gestione più realistica delle informazioni
+The interface was designed to be elegant and high-performing, consuming data provided by the backend's REST APIs.
 
-💡 **Consigli**
+### Key Features
 
-- Strutturate bene le relazioni nel database prima di partire.
-- Usate Postman o strumenti simili per testare le API.
-- Curate l’UI del frontend per rendere la navigazione intuitiva.
+- **Single Page Application (SPA)**: Smooth and fast navigation powered by React Router.
+- **Catalog Browsing**: Full exploration of cameras, lenses, and photographers with detailed views.
+- **Dynamic Filtering**: Real-time filtering system to quickly find specific items.
+- **Responsive Design**: UI optimized for all devices, from desktops to smartphones.
+- **API Integration**: Efficient communication with the backend using the Fetch API and custom hooks.
 
-Buon lavoro! 🚀
+### Codebase Structure
+
+The project follows a structure organized by components and responsibilities:
+
+- `src/components/`: Reusable UI components (Cards, Loader, Footer, Header, Icons).
+- `src/pages/`: Main components representing the different application views.
+- `src/hooks/`: Custom hooks for logic and data fetching (e.g., `useFetch`).
+- `src/layouts/`: Global application layout definition.
+- `src/util/`: Utility classes, TypeScript types, and helper functions for data management.
+- `src/assets/`: Static assets such as images and global stylesheets.
+
+### Tech Stack
+
+- **React 19**
+- **TypeScript 6**
+- **Vite 8**
+- **React Router 7**
+- **CSS3 (Custom Properties & CSS Nesting)**
+- **Oxlint / Oxfmt**
+
+---
+
+## Guida all'avvio / Getting Started
+
+### Prerequisiti / Prerequisites
+
+- Node.js (v18 o superiore / or higher)
+- pnpm (consigliato / recommended)
+
+### Installazione / Installation
+
+```bash
+pnpm install
+```
+
+### Esecuzione in sviluppo / Development Mode
+
+```bash
+pnpm dev
+```
+
+### Build per la produzione / Production Build
+
+```bash
+pnpm build
+```
+
+### Docker
+
+Per compilare ed avviare l'immagine Docker:
+To build and run the Docker image:
+
+```bash
+# Build
+docker build --build-arg VITE_BACKEND_URL=http://localhost:8080 -t retrofocus-frontend .
+
+# Run
+docker run -p 80:80 retrofocus-frontend
+```
